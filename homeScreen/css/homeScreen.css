@@ -147,6 +147,13 @@
 }
 
 
+#drinkGoal:hover{
+  color: #8cafda;
+  cursor: pointer;
+}
+
+
+
 /*buttons ----------------------------*/
 #hundredMl{
   position:inherit;

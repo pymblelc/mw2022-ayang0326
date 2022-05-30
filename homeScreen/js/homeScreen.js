@@ -13,16 +13,14 @@ var arrDailyDrinkData = [
 var visible = '';
 var dateVisible = false;
 var todayDate = 0;
-/*var drinkGoal = [
+
+var drinkGoal = [
   {amount: 1000, name: '1 Litre'},
-  {amount: 1500, name: '1.5 Litres'},
   {amount: 2000, name: '2 Litres'},
-  {amount: 2500, name: '2.5 Litres'},
   {amount: 3000, name: '3 Litres'},
-  {amount: 3500, name: '3.5 Litres'},
   {amount: 4000, name: '4 Litres'},
 ];
-var setGoal = 0;*/
+var setGoal = 0;
 // Hide/Show functions --------------------------------
 
 $('#drinkDisplayCoffee').hide();
@@ -207,8 +205,6 @@ function addDrink(item, url, apikey){
   });
 }
 
-
-
 //Navigation - sliders -------------------------------
 
 $('#naviCloseBtn').hide();
@@ -239,3 +235,6 @@ $('#stats').click(function(){
 $('#user').click(function(){
   location.href='../login/login.html?';
 });
+
+
+//drink goal bar display -------------------------------
