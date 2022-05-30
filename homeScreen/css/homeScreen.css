@@ -148,11 +148,22 @@
 
 
 #drinkGoal:hover{
-  color: #8cafda;
+  background-color: #8cafda;
   cursor: pointer;
 }
 
-
+#drinkGoal1{
+  position:absolute;
+  border-radius: 50%;
+  top: 475px;
+  left: 325px;
+  width: 70px;
+  height: 70px;
+  border: solid;
+  border-width: 5px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+}
 
 /*buttons ----------------------------*/
 #hundredMl{
