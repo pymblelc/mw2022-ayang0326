@@ -15,10 +15,9 @@ var dateVisible = false;
 var todayDate = 0;
 
 var drinkGoal = [
-  {amount: 1000, name: '1 Litre'},
-  {amount: 2000, name: '2 Litres'},
-  {amount: 3000, name: '3 Litres'},
+  {amount: 3000, name: '3 Litre'},
   {amount: 4000, name: '4 Litres'},
+  {amount: 5000, name: '5 Litres'},
 ];
 var setGoal = 0;
 // Hide/Show functions --------------------------------

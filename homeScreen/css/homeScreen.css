@@ -146,6 +146,50 @@
   background-color: #252f3f;
 }
 
+#drinkGoal1{
+  position:absolute;
+  border-radius: 50%;
+  top: 20px;
+  left: 0px;
+  width: 10px;
+  height: 10px;
+  border: solid;
+  border-width: 5px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+}
+
+#drinkGoal2{
+  position:absolute;
+  border-radius: 50%;
+  top: 20px;
+  left: 40px;
+  width: 10px;
+  height: 10px;
+  border: solid;
+  border-width: 5px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+}
+
+#drinkGoal3{
+  position:absolute;
+  border-radius: 50%;
+  top: 20px;
+  left: 80px;
+  width: 10px;
+  height: 10px;
+  border: solid;
+  border-width: 5px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+}
+
+
+
+
+
+
 
 #drinkGoal:hover{
   background-color: #8cafda;
