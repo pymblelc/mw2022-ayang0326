@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>home screen :D</title>
+        <link rel="stylesheet" href="homeScreen/css/homeScreen.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    
+      <div id='phoneScreen'>
+      <div id= 'colour1'></div>
+      <div id= 'colour2'></div>
+
+      <!--<div id= 'month'>Reset Date</div>-->
+      <div id= 'day'>Set Date</div>
+      <!--<div id= 'user'></div>-->
+
+      
+      
+      <div id= 'drinkDisplayDrink'><img src = homeScreen/images/drinkChoice.png + width='300px'></div>
+      <div id= 'drinkDisplayCoffee'><img src = homeScreen/images/coffee.png + width='300px'></div>
+      <div id= 'drinkDisplayWater'><img src = homeScreen/images/water.png + width='300px'></div>
+      <div id= 'drinkDisplayTea'><img src = homeScreen/images/tea.png + width='300px'></div>
+      <div id= 'drinkDisplayJuice'><img src = homeScreen/images/juice.png + width='300px'></div>
+      
+      <!--Dropdown change drink menu-->
+      <div class="dropdown"> 
+        <button onclick="myFunction()" class="dropbtn"></button>
+        <div id="differentDrinks" class="drinkContent">
+          <a id="coffee"><img src = 'homeScreen/images/coffeeB.png' + width='153px'></a>
+          <a id="tea"><img src = homeScreen/images/teaB.png + width='153px'></a>
+          <a id="juice"><img src = homeScreen/images/juiceB.png + width='153px'></a>
+          <a id="water"><img src =homeScreen/images/waterB.png + width='153px'></a>
+        </div>
+      </div>
+      
+      <div id= 'drinkMeterBack'>
+        <div id= 'drinkMeter'></div>
+      </div>
+      
+
+      <div id= 'drinkGoal'>
+        <div id="drinkGoaltxt">Goal</div>
+        <div id = 'drinkGoal1'>3L</div>
+        <div id = 'drinkGoal2'>4L</div>
+        <div id = 'drinkGoal3'>5L</div>
+      </div>
+
+      <button id='hundredMl'>100ml</button>
+      <button id='twoFiftyMl'>250ml</button>
+      <button id='sixHundredMl'>600ml</button>
+      <button id='eightFiftyMl'>850ml</button>
+      <button id='litre'>1L</button>
+
+      <div id= 'naviBtn'>≡</div>
+      <div id="navigation">
+        <div id= 'navigationtxt'>Navigation</div>
+        <div id= 'colour3'></div>
+        <button id="naviCloseBtn">X</button>
+        <a id="home">Home</a>
+        <a id="stats">Statistics</a>
+      </div>
+      
+      <input type="date" id="todayDate">
+      <button id="submitDate">enter</button>
+
+    </div>
+
+   
+    <script type="text/javascript" src="homeScreen/js/homeScreen.js"></script>
+    </body>
+</html> 
