@@ -1,12 +1,13 @@
 /*date picker -------------------------------*/
+/* 
 #month{
     position:inherit;
     margin: 5px;
     padding: 10px;
-    width: 20px;
+
     height: 10px;
     top: 15px;
-    left: 160px;
+    left: 150px;
     text-align: center;
     border-style: solid;
     border-radius: 15px;
@@ -16,17 +17,13 @@
     color: #252f3f;
     background-color: transparent;
 }
-
-#month:hover{
-  color: #8cafda;
-  cursor: pointer;
-}
+*/
 
 #todayDate{
     position:inherit;
     margin: 5px;
     padding: 10px;
-    top: 80px;
+    top: 50px;
     left: 100px;
     background-color: #bdd3ed;
     color: #335484;
@@ -41,13 +38,14 @@
     height: 40px;
     width: 55px;
     text-align: center;
-    top: 83px;
+    top: 53px;
     left: 275px;
     border-radius: 25px;
     background-color: #bdd3ed;
     
 }
 #submitDate:hover{
+  color: #faf2ec;
   background-color: #8cafda;
   cursor: pointer;
 }
@@ -59,7 +57,7 @@
     height: 20px;
     width: 200px;
     text-align: center;
-    top: 80px;
+    top: 50px;
     left: 100px;
     text-align: center;
     border-style: solid;
@@ -71,38 +69,41 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
 }
-
-
+#day:hover{
+  color: #faf2ec;
+  cursor: pointer;
+  background-color: #8cafda;
+}
 
 /*image display -------------------------------*/
 #drinkDisplayWater{
   position: inherit;
   margin: 5px;
-  top: 155px;
+  top: 135px;
   left: 60px;
 }
 #drinkDisplayCoffee{
   position: inherit;
   margin: 5px;
-  top: 155px;
+  top: 135px;
   left: 60px;
 }
 #drinkDisplayTea{
   position: inherit;
   margin: 5px;
-  top: 155px;
+  top: 135px;
   left: 60px;
 }
 #drinkDisplayJuice{
   position: inherit;
   margin: 5px;
-  top: 155px;
+  top: 135px;
   left: 60px;
 }
 #drinkDisplayDrink{
   position: inherit;
   margin: 5px;
-  top: 155px;
+  top: 135px;
   left: 60px;
 }
 
@@ -123,7 +124,7 @@
 
 #drinkMeterBack{
   position:absolute;
-  top: 500px;
+  top: 480px;
   left: 40px;
   width: 340px;
   height: 30px;
@@ -136,78 +137,115 @@
 #drinkGoal{
   position:absolute;
   border-radius: 50%;
-  top: 475px;
+  top: 455px;
   left: 325px;
   width: 70px;
-  height: 70px;
+  height: 45px;
   border: solid;
   border-width: 5px;
   border-color: #faf2ec;
   background-color: #252f3f;
+  text-align: center;
+  color: #faf2ec;
+  padding-top: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
 }
 
 #drinkGoal1{
   position:absolute;
   border-radius: 50%;
-  top: 20px;
-  left: 0px;
-  width: 10px;
-  height: 10px;
+  top: -62px;
+  left: 5px;
+  width: 50px;
+  height: 35px;
   border: solid;
   border-width: 5px;
   border-color: #faf2ec;
   background-color: #252f3f;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+  text-align: center;
+  padding-top: 15px;  
+
+
 }
 
 #drinkGoal2{
   position:absolute;
   border-radius: 50%;
-  top: 20px;
-  left: 40px;
-  width: 10px;
-  height: 10px;
+  top: -120px;
+  left: 5px;
+  width: 50px;
+  height: 35px;
   border: solid;
   border-width: 5px;
   border-color: #faf2ec;
   background-color: #252f3f;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+  text-align: center;
+  padding-top: 15px;
+
 }
 
 #drinkGoal3{
   position:absolute;
   border-radius: 50%;
-  top: 20px;
-  left: 80px;
-  width: 10px;
-  height: 10px;
+  top: -178px;
+  left: 5px;
+  width: 50px;
+  height: 35px;
   border: solid;
   border-width: 5px;
   border-color: #faf2ec;
   background-color: #252f3f;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+  text-align: center;
+  padding-top: 15px;
+
 }
-
-
-
-
 
 
 
 #drinkGoal:hover{
   background-color: #8cafda;
   cursor: pointer;
+  color: #252f3f;
+  box-shadow: 0px 0px 10px 0px;
+  box-shadow: #252f3f;
 }
 
-#drinkGoal1{
-  position:absolute;
-  border-radius: 50%;
-  top: 475px;
-  left: 325px;
-  width: 70px;
-  height: 70px;
-  border: solid;
-  border-width: 5px;
-  border-color: #faf2ec;
-  background-color: #252f3f;
+#drinkGoal1:hover{
+  background-color: #8cafda;
+  cursor: pointer;
+  color: #252f3f;
+  box-shadow: 0px 0px 10px 0px;
+  box-shadow: #252f3f;
 }
+#drinkGoal2:hover{
+  background-color: #8cafda;
+  cursor: pointer;
+  color: #252f3f;
+  box-shadow: 0px 0px 10px 0px;
+  box-shadow: #252f3f;
+}
+
+#drinkGoal3:hover{
+  background-color: #8cafda;
+  cursor: pointer;
+  color: #252f3f;
+  box-shadow: 0px 0px 10px 0px;
+  box-shadow: #252f3f;
+}
+
+
+
 
 /*buttons ----------------------------*/
 #hundredMl{
@@ -277,7 +315,7 @@
     padding: 10px;
     width: 100px;
     height: 100px;
-    top: 135px;
+    top: 115px;
     left: 40px;
 } 
 
@@ -378,7 +416,7 @@
   #phoneScreen{
     margin: 5px;
     padding: 10px;
-    width: 414px;
+    width: 410px;
     height: 655px;
     top: 0;
     left: 34%;
@@ -419,6 +457,8 @@
     border-radius: 5px;
     border-color: transparent;
     color: #252f3f;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
 }
 
 #navigation{
@@ -435,10 +475,38 @@
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
+#navigation:hover{
+  box-shadow: 0px 0px 2px 0px;
+  box-shadow: #252f3f;
+}
+#navigationtxt{
+  position: relative;
+  top: -55px;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #faf2ec;
+  display: block;
+  transition: 0.3s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+#colour3{
+  position: relative;
+  top: -55px;
+  color: #faf2ec;
+  width: 240px;
+  display: block;
+  height: 0.1px;
+  transition: 0.3s;
+  border: solid;
+
+
+}
   /* The navigation menu links */
 #navigation a {
   position: relative;
-  top: 5px;
+  top: -40px;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -446,6 +514,8 @@
   display: block;
   transition: 0.3s;
   cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -460,8 +530,8 @@
   position: inherit;
   width: 50px;
   height: 50px;
-  top: 25px;
-  left: 345px;
+  top: 20px;
+  left: 350px;
   border-radius: 50%;
 
 }
@@ -469,8 +539,9 @@
 /*Fancy css stuff*/
 #colour1{
   background-color: #252f3f;
+
   position: inherit;
-  width: 434px;
+  width: 430px;
   height: 5px;
   top: 10px;
   left: 0px;
@@ -479,9 +550,12 @@
 #colour2{
   background-color: #252f3f;
   position: inherit;
-  width: 434px;
+  width: 430px;
   height: 5px;
   top: 660px;
   left: 0px;
 
 }
+
+
+
