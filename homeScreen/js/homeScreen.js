@@ -1,13 +1,8 @@
 //Variables --------------------------------
 var apikey = '622e9137dced170e8c83a238';
 var url = 'https://ayangdailydrink-3299.restdb.io/rest/login';
-var arrDailyDrinkData = [
-    {name: "Coffee", cups: 0, amount: 0, order: 0},
-    {name: "Water", cups: 0, amount: 0, order: 1},
-    {name: "Tea", cups: 0, amount: 0, order: 2},
-    {name: "Juice", cups: 0, amount: 0, order: 3},
-    {name: "total", cups: 0, amount: 0, order: 4}
-];
+var url2 = 'https://ayangdailydrink-3299.restdb.io/rest/dailydrinkcount';
+var arrDrinkData = [''];
 
 var visible = '';
 var dateVisible = false;
@@ -18,10 +13,12 @@ var arrdrinkGoal = [
   {amount: 4000, name: '4L'},
   {amount: 5000, name: '5L'},
 ];
-var setGoal = 0;
-var Goal = '';
-var arrLogin = [''];
+
+var Goal = 0;
 var goalCalc = 0;
+var use ='';
+
+var arrLogin = [''];
 
 // -------------------------------*HOME PAGE JS CODES*  -------------------------------
 //functions - homepage
@@ -72,7 +69,7 @@ function datePicker(dateVisible, tDate){
   $('#submitDate').click(function(){
     //database will use
     //tDate = $('#todayDate').val();
-    output = $('#todayDate').val()
+    output = $('#todayDate').val();
     $('#todayDate').hide();
     $('#submitDate').hide();
     $('#day').text(output);
@@ -87,11 +84,11 @@ function datePicker(dateVisible, tDate){
 
 //drink amount function --------------------------------
 
-$('#hundredMl').click(function(){
+$('#hundredMl').click(function(output){
     var drinkAmount = 100;
-    drinkData(drinkAmount);
+    drinkData(drinkAmount, output);
     //CONSOLE
-    console.log(arrDailyDrinkData);
+    console.log('99', arrDrinkData);
     drinkMeterSet(drinkGoalAmount, drinkAmount);
     //var meterAmount = 10;
 });
@@ -99,146 +96,193 @@ $('#twoFiftyMl').click(function(){
     var drinkAmount = 250;
     drinkData(drinkAmount);
     //CONSOLE
-  console.log(arrDailyDrinkData);
+  console.log(arrDrinkData);
   drinkMeterSet(drinkGoalAmount, drinkAmount);
 });
 $('#sixHundredMl').click(function(){
   var drinkAmount = 600;
   drinkData(drinkAmount);
   //CONSOLE
-  console.log(arrDailyDrinkData);
+  console.log(arrDrinkData);
   drinkMeterSet(drinkGoalAmount, drinkAmount);
 });
 $('#eightFiftyMl').click(function(){
   var drinkAmount = 850;
   drinkData(drinkAmount);
   //CONSOLE
-  console.log(arrDailyDrinkData);
+  console.log(arrDrinkData);
   drinkMeterSet(drinkGoalAmount, drinkAmount);
 });
 $('#litre').click(function(){
   var drinkAmount = 1000;
   drinkData(drinkAmount);
   //CONSOLE
-  console.log(arrDailyDrinkData);
+  console.log(arrDrinkData);
   drinkMeterSet(drinkGoalAmount, drinkAmount);
 });
 
-//drink bar--------------------------------
-  //drinkGoal changing (flex ammount)
-$('#drinkGoal').mouseover(function(){
-  $('#drinkGoal1').show();
-  $('#drinkGoal2').show();
-  $('#drinkGoal3').show();
-});
-$('#drinkGoal').mouseleave(function(){
-  $('#drinkGoal1').hide();
-  $('#drinkGoal2').hide();
-  $('#drinkGoal3').hide();
-});
-  //click functions
-$('#drinkGoal1').click(function(){
-  drinkGoalAmount = '0';
-  $('#drinkGoaltxt').text(arrdrinkGoal[0].name);
-});
-$('#drinkGoal2').click(function(){
-  drinkGoalAmount = '1';
-  $('#drinkGoaltxt').text(arrdrinkGoal[1].name);
-});
-$('#drinkGoal3').click(function(){
-  drinkGoalAmount = '2';
-  $('#drinkGoaltxt').text(arrdrinkGoal[2].name);
-});
 
-
-function drinkMeterSet(drinkGoalAmount,drinkAmount){
-  switch(drinkGoalAmount){
-    case '0':
-      Goal = 3000;
-      drinkMeterMoveAmount(drinkAmount);
-    break;
-
-    case '1':
-      Goal = 4000;
-      drinkMeterMoveAmount(drinkAmount);
-    break;
-
-    case '2':
-      Goal = 5000;
-      drinkMeterMoveAmount(drinkAmount);
-      
-    break;
-  }
-}
-
-function drinkMeterMoveAmount(drinkAmount){
-  switch(drinkAmount){
-    case 100:
-        goalCalc = 340/(Goal/100) + goalCalc;
-        console.log(goalCalc);
-        $("#drinkMeter").css({width: goalCalc + 'px'});
-        break;
-
-    case 250:
-      goalCalc = 340/(Goal/250) + goalCalc;
-      console.log(goalCalc);
-      $("#drinkMeter").css({width: goalCalc + 'px'});
-    break;
-
-    case 600:
-      goalCalc = 340/(Goal/600) + goalCalc;
-      console.log(goalCalc);
-      $("#drinkMeter").css({width: goalCalc + 'px'});
-    break;
-
-    case 850:
-      goalCalc = 340/(Goal/850) + goalCalc;
-      console.log(goalCalc);
-      $("#drinkMeter").css({width: goalCalc + 'px'});
-    break;
-
-    case 1000:
-      goalCalc = 340/(Goal/1000) + goalCalc;
-      console.log(goalCalc);
-      $("#drinkMeter").css({width: goalCalc + 'px'});
-    break;
-  }
-  if(goalCalc >= 340){
-    alert('goalreached');
-    $("#drinkMeter").css({width: '340px'});
-  } 
-
-}
-
+getDrink(url2,apikey);
 //drink data function--------------------------------
 function drinkData(drinkAmount){
-  //drink ammount will be chosen
-  arrDailyDrinkData[4].amount +=drinkAmount;
-  arrDailyDrinkData[4].cups +=1;
   //casewhere used to check which div is visible
     switch (visible){
       case 'c': 
-        arrDailyDrinkData[0].amount +=drinkAmount;
-        arrDailyDrinkData[0].cups +=1;
-        //var tempDrink = {Name: 'coffee', Cups: 1, Amount: drinkAmount, Date: todayDate };
-        //addDrink(tempDrink, url, apikey);
-        //$("#drinkMeter").css({ width: "+=100%"});
-
+        var tempDrink = {Name: 'coffee', Cups: 1, Amount: drinkAmount, Date: $('#todayDate').val(), User: use, Goal: Goal};
+        addDrink(tempDrink, url2, apikey);
       break;
       case 'w': 
-        arrDailyDrinkData[1].amount +=drinkAmount;
-        arrDailyDrinkData[1].cups +=1;
+        var tempDrink = {Name: 'water', Cups: 1, Amount: drinkAmount, Date: $('#todayDate').val(), User: use, Goal: Goal};
+        addDrink(tempDrink, url2, apikey);
       break;
       case 't': 
-        arrDailyDrinkData[2].amount +=drinkAmount;
-        arrDailyDrinkData[2].cups +=1;
+        var tempDrink = {Name: 'tea', Cups: 1, Amount: drinkAmount, Date: $('#todayDate').val(), User: use, Goal: Goal};
+        addDrink(tempDrink, url2, apikey);
       break;
       case 'j': 
-        arrDailyDrinkData[3].amount +=drinkAmount;
-        arrDailyDrinkData[3].cups +=1;
+        var tempDrink = {Name: 'juice', Cups: 1, Amount: drinkAmount, Date: $('#todayDate').val(), User: use, Goal: Goal};
+        addDrink(tempDrink, url2, apikey);
       break;
     }
 }
+
+
+//REST.DB functons-------------------------------
+function addDrink(tempDrink, url2, apikey){
+  getDrink(url2, apikey);
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": url2,
+    "method": "POST",
+    "headers": {
+        "content-type": "application/json",
+        "x-apikey": apikey,
+        "cache-control": "no-cache"
+    },
+    "processData": false,
+    "data": JSON.stringify(tempDrink)
+  }
+  $.ajax(settings).done(function () {
+
+      
+  });
+ }
+function getDrink(url2,apikey){
+  var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": url2,
+      "method": "GET",
+      "headers": {
+          "content-type": "application/json",
+          "x-apikey": apikey,
+          "cache-control": "no-cache"
+      }
+  }
+
+
+  $.ajax(settings).done(function (response2) {
+      //console.log(response);
+      //for(var i=0; i<response.length; i++){
+          arrDrinkData = response2;
+      //}
+  });
+}
+
+
+//drink bar--------------------------------
+  //drinkGoal changing (flex ammount)
+  $('#drinkGoal').mouseover(function(){
+    $('#drinkGoal1').show();
+    $('#drinkGoal2').show();
+    $('#drinkGoal3').show();
+  });
+  $('#drinkGoal').mouseleave(function(){
+    $('#drinkGoal1').hide();
+    $('#drinkGoal2').hide();
+    $('#drinkGoal3').hide();
+  });
+    //click functions
+  $('#drinkGoal1').click(function(){
+    drinkGoalAmount = '0';
+    $('#drinkGoaltxt').text(arrdrinkGoal[0].name);
+  });
+  $('#drinkGoal2').click(function(){
+    drinkGoalAmount = '1';
+    $('#drinkGoaltxt').text(arrdrinkGoal[1].name);
+  });
+  $('#drinkGoal3').click(function(){
+    drinkGoalAmount = '2';
+    $('#drinkGoaltxt').text(arrdrinkGoal[2].name);
+  });
+  
+  
+  function drinkMeterSet(drinkGoalAmount,drinkAmount){
+    switch(drinkGoalAmount){
+      case '0':
+        Goal = 3000;
+        drinkMeterMoveAmount(drinkAmount);
+      break;
+  
+      case '1':
+        Goal = 4000;
+        drinkMeterMoveAmount(drinkAmount);
+      break;
+  
+      case '2':
+        Goal = 5000;
+        drinkMeterMoveAmount(drinkAmount);
+        
+      break;
+    }
+  }
+  
+  function drinkMeterMoveAmount(drinkAmount){
+    switch(drinkAmount){
+      case 100:
+          goalCalc = 340/(Goal/100) + goalCalc;
+          console.log(goalCalc);
+          $("#drinkMeter").css({width: goalCalc + 'px'});
+          break;
+  
+      case 250:
+        goalCalc = 340/(Goal/250) + goalCalc;
+        console.log(goalCalc);
+        $("#drinkMeter").css({width: goalCalc + 'px'});
+      break;
+  
+      case 600:
+        goalCalc = 340/(Goal/600) + goalCalc;
+        console.log(goalCalc);
+        $("#drinkMeter").css({width: goalCalc + 'px'});
+      break;
+  
+      case 850:
+        goalCalc = 340/(Goal/850) + goalCalc;
+        console.log(goalCalc);
+        $("#drinkMeter").css({width: goalCalc + 'px'});
+      break;
+  
+      case 1000:
+        goalCalc = 340/(Goal/1000) + goalCalc;
+        console.log(goalCalc);
+        $("#drinkMeter").css({width: goalCalc + 'px'});
+      break;
+    }
+    if(goalCalc >= 340){
+      alert('goalreached');
+      $("#drinkMeter").css({width: '340px'});
+    } 
+  
+  }
+
+
+
+
+
+
+
 //dropdown centre button-------------------------------------
 //*NOTE* THIS IS PLAIN JS CODE, NOT JQUERY
 function myFunction() {
@@ -351,9 +395,6 @@ $('#weight').hide();
 $('#goalsReached').hide();
 
 $('#signUp').hide();
-//
-$('#login').hide();
-$('#signUp').show();
 
 //buttons
 
@@ -378,8 +419,6 @@ $('#signUpLogin').click(function(){
 
  //get Rest.Db functions. 
  getSignUp(url,apikey);
- console.log(getSignUp);
-
 
  
 
@@ -398,13 +437,7 @@ $('#signUpLogin').click(function(){
 
   //$('#loginUsername').val('');
   //$('#loginPassword').val('');
-  for (var i = 0; i < arrLogin.length; i++) {
-    if (arrLogin[i].Username == $('#signUpUsername').val()){
-      $('#signUpErrorU').show();
-      console.log('n');
-      return;
-    }
-  }
+
 
   if (fname == ''){
     $('#signUpErrorE').show();
@@ -431,6 +464,13 @@ $('#signUpLogin').click(function(){
     $('#signUpErrorP').show();
     return;
   }
+  for (var i = 0; i < arrLogin.length; i++) {
+    if (arrLogin[i].Username == $('#signUpUsername').val()){
+      $('#signUpError').show();
+      console.log('n');
+      return;
+    }
+  }
   if (found === true){
     var tempSignup= {
       Fname: $('#signUpFname').val(), 
@@ -438,9 +478,14 @@ $('#signUpLogin').click(function(){
       Username: $('#signUpUsername').val().toLowerCase(), 
       Password: $('#signUpPassword').val(), 
       Cpassword:  $('#signUpCheckPassword').val()
-
     }
     addSignUp(tempSignup, url, apikey);  
+   
+   $('#signUpCheckPassword').val();
+   $('#signUpUsername').val('');
+  $('#signUpPassword').val('');
+   $('#signUpFname').val('');
+   $('#signUpLname').val('');
     $('#login').show();
     $('#signUp').hide();
     return;
@@ -464,6 +509,7 @@ $('#signUpLogin').click(function(){
          $('#loginUsername').val('');
          $('#loginPassword').val('');
          $('#loginError').hide();
+         use = username;
           break; //---- breaking out of loop
 
       }
@@ -518,7 +564,6 @@ function getSignUp(url,apikey){
       //console.log(response);
       //for(var i=0; i<response.length; i++){
           arrLogin= response;
-          console.log(response);
       //}
   });
 }
