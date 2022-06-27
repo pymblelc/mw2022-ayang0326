@@ -2,80 +2,143 @@
 <html> 
     <head>
         <title>home screen :D</title>
-        <link rel="stylesheet" href="login/css copy/login.css"/>
+        <link rel="stylesheet" href="homeScreen/css/homeScreen.css"/>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     </head>
     <body>
     
-      <div id='phoneScreen'> 
-        
-        <div id="signUp">
+      <div id='phoneScreen'>
+      <div id= 'colour1'></div>
+      <div id= 'colour2'></div>
 
-          <div id="signUpTxt1">Sign Up</div>
-          <input id="signUpFname" placeholder="First Name"><br>
-          <input id="signUpLname" placeholder="Last Name"><br>
-          <input id="signUpUsername" placeholder="Username"><br>
-          <input id="signUpPassword" placeholder="Password"><br>
-          <input id="signUpCheckPassword" placeholder="Confirm Password"><br>
-          <button id="signUpSubmit">Enter</button>
-          <div id = 'signUpNewAccount'>
-            Already a member? <a id="signUpLogin">Login</a>
-          </div>
-          <div id = 'signUpError'>The username already exists, please choose another</div>
-          <div id = 'signUpErrorP'>Passwords do not match</div>
-          <div id = 'signUpErrorE'>Please enter a value for all fields</div>
+      <!--<div id= 'month'>Reset Date</div>-->
+      <div id= 'day'>Set Date</div>
+      <!--<div id= 'user'></div>-->
 
-          <div id="signUpProfile">
-            <div id="circle">
-              <img id="profile-pic" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
-            </div>
-
-            <div id="signUpPopUp">
-              <div id="'pfp1"></div>
-              <div id="'pfp2"></div>
-              <div id="'pfp3"></div>
-              <div id="'pfp4"></div>
-            </div>
-          </div>
-
+      
+      
+      <div id= 'drinkDisplayDrink'><img src = homeScreen/images/drinkChoice.png + width='300px'></div>
+      <div id= 'drinkDisplayCoffee'><img src = homeScreen/images/coffee.png + width='300px'></div>
+      <div id= 'drinkDisplayWater'><img src = homeScreen/images/water.png + width='300px'></div>
+      <div id= 'drinkDisplayTea'><img src = homeScreen/images/tea.png + width='300px'></div>
+      <div id= 'drinkDisplayJuice'><img src = homeScreen/images/juice.png + width='300px'></div>
+      
+      <!--Dropdown change drink menu-->
+      <div class="dropdown"> 
+        <button onclick="myFunction()" class="dropbtn"></button>
+        <div id="differentDrinks" class="drinkContent">
+          <a id="coffee"><img src = 'homeScreen/images/coffeeB.png' + width='153px'></a>
+          <a id="tea"><img src = homeScreen/images/teaB.png + width='153px'></a>
+          <a id="juice"><img src = homeScreen/images/juiceB.png + width='153px'></a>
+          <a id="water"><img src =homeScreen/images/waterB.png + width='153px'></a>
         </div>
-
-        <div id="login">
-        <div id="loginTxt2">Hydration💧</div>
-        <div id="loginTxt1">Login</div>
-        <input id="loginUsername" placeholder="Username"><br>
-        <input id="loginPassword" placeholder="Password"><br>
-        <button id="loginSubmit">Enter</button><br>
-        <div id = 'loginNewAccount'>
-          Don't have an Account? <a id="loginSignUp">Sign Up</a>
-        </div>
-        <div id = 'loginError'>Sorry your username and/or password is incorrect</div>
-        <div id ='Ldisplay1'></div>
-        </div>
-
-
-
-
-        <div id ='profile'>profile pictrue</div>
-        <div id ='Fname'>first name</div>
-        <div id ='Lname'>last name</div>
-        <div id ='username'>username</div>
-
-
-        <div id ='sex'>sex</div>
-        <div id ='height'>height</div>
-        <div id ='weight'>weight</div>
-        <div id ='goalsReached'>goalsReached</div>
-
-
-
-
-
-
+      </div>
+      
+      <div id= 'drinkMeterBack'>
+        <div id= 'drinkMeter'></div>
       </div>
       
 
+      <div id= 'drinkGoal'>
+        <div id="drinkGoaltxt">Goal</div>
+        <div id = 'drinkGoal1'>3L</div>
+        <div id = 'drinkGoal2'>4L</div>
+        <div id = 'drinkGoal3'>5L</div>
+      </div>
+
+      <button id='hundredMl'>100ml</button>
+      <button id='twoFiftyMl'>250ml</button>
+      <button id='sixHundredMl'>600ml</button>
+      <button id='eightFiftyMl'>850ml</button>
+      <button id='litre'>1L</button>
+
+      <div id= 'naviBtn'>≡</div>
+      <div id="navigation">
+        <div id= 'navigationtxt'>Navigation</div>
+        <div id= 'colour3'></div>
+        <button id="naviCloseBtn">X</button>
+        <a id="home">Home</a>
+        <a id="stats">Statistics</a>
+      </div>
+      
+      <input type="date" id="todayDate">
+      <button id="submitDate">enter</button>
+
+    </div>
+
+
+
+
+
+    
+
+    <div id='loginScreen'> 
+        
+      <div id="signUp">
+
+        <div id="signUpTxt1">Sign Up</div>
+        <input id="signUpFname" placeholder="First Name"><br>
+        <input id="signUpLname" placeholder="Last Name"><br>
+        <input id="signUpUsername" placeholder="Username"><br>
+        <input id="signUpPassword" placeholder="Password"><br>
+        <input id="signUpCheckPassword" placeholder="Confirm Password"><br>
+        <button id="signUpSubmit">Enter</button>
+        <div id = 'signUpNewAccount'>
+          Already a member? <a id="signUpLogin">Login</a>
+        </div>
+        <div id = 'signUpError'>The username already exists, please choose another</div>
+        <div id = 'signUpErrorP'>Passwords do not match</div>
+        <div id = 'signUpErrorE'>Please enter a value for all fields</div>
+
+        <div id="signUpProfile">
+          <div id="circle">
+            <img id="profile-pic" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+          </div>
+
+          <div id="signUpPopUp">
+            <div id="'pfp1"></div>
+            <div id="'pfp2"></div>
+            <div id="'pfp3"></div>
+            <div id="'pfp4"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="login">
+      <div id="loginTxt2">Hydration💧</div>
+      <div id="loginTxt1">Login</div>
+      <input id="loginUsername" placeholder="Username"><br>
+      <input id="loginPassword" placeholder="Password"><br>
+      <button id="loginSubmit">Enter</button><br>
+      <div id = 'loginNewAccount'>
+        Don't have an Account? <a id="loginSignUp">Sign Up</a>
+      </div>
+      <div id = 'loginError'>Sorry your username and/or password is incorrect</div>
+      <div id ='Ldisplay1'></div>
+      </div>
+
+
+
+
+      <div id ='profile'>profile pictrue</div>
+      <div id ='Fname'>first name</div>
+      <div id ='Lname'>last name</div>
+      <div id ='username'>username</div>
+
+
+      <div id ='sex'>sex</div>
+      <div id ='height'>height</div>
+      <div id ='weight'>weight</div>
+      <div id ='goalsReached'>goalsReached</div>
+
+
+
+
+
+
+    </div>
 
    
     <script type="text/javascript" src="homeScreen/js/homeScreen.js"></script>

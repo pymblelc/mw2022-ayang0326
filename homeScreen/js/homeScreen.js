@@ -506,11 +506,12 @@ $('#signUpLogin').click(function(){
       //---- checks if the username exists and whether the password matches
       if (arrLogin[i].Username == username && arrLogin[i].Password == password && arrLogin[i].Cpassword == password) {
          found = true;
-         location.href='../home.html'
+         
          $('#loginUsername').val('');
          $('#loginPassword').val('');
          $('#loginError').hide();
          use = username;
+         $('#loginScreen').hide();
           break; //---- breaking out of loop
 
       }
