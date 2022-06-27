@@ -86,39 +86,39 @@ function datePicker(dateVisible, tDate){
 
 $('#hundredMl').click(function(output){
     var drinkAmount = 100;
-    drinkData(drinkAmount, output);
     //CONSOLE
     console.log('99', arrDrinkData);
     drinkMeterSet(drinkGoalAmount, drinkAmount);
+    drinkData(drinkAmount);
     //var meterAmount = 10;
 });
 $('#twoFiftyMl').click(function(){
     var drinkAmount = 250;
-    drinkData(drinkAmount);
-    //CONSOLE
   console.log(arrDrinkData);
   drinkMeterSet(drinkGoalAmount, drinkAmount);
+  drinkData(drinkAmount);
 });
 $('#sixHundredMl').click(function(){
   var drinkAmount = 600;
-  drinkData(drinkAmount);
   //CONSOLE
   console.log(arrDrinkData);
   drinkMeterSet(drinkGoalAmount, drinkAmount);
+  drinkData(drinkAmount);
 });
 $('#eightFiftyMl').click(function(){
   var drinkAmount = 850;
-  drinkData(drinkAmount);
+  
   //CONSOLE
   console.log(arrDrinkData);
   drinkMeterSet(drinkGoalAmount, drinkAmount);
+  drinkData(drinkAmount);
 });
 $('#litre').click(function(){
   var drinkAmount = 1000;
-  drinkData(drinkAmount);
   //CONSOLE
   console.log(arrDrinkData);
   drinkMeterSet(drinkGoalAmount, drinkAmount);
+  drinkData(drinkAmount);
 });
 
 
@@ -228,6 +228,7 @@ function getDrink(url2,apikey){
       case '1':
         Goal = 4000;
         drinkMeterMoveAmount(drinkAmount);
+        console.log(Goal);
       break;
   
       case '2':
