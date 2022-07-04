@@ -34,6 +34,8 @@ $('#drinkDisplayTea').hide();
 $('#drinkDisplayWater').hide();
 $('#todayDate').hide();
 $('#submitDate').hide();
+$('#stodayDate').hide();
+$('#ssubmitDate').hide();
 
 $('#drinkGoal1').hide();
 $('#drinkGoal2').hide();
@@ -365,12 +367,12 @@ function slider(){
  //access new html
  $('#stats').click(function(){
   location.href='../stats.html?';
-});
-$('#user').click(function(){
-  location.href='../index.html?';
+
+  
 });
 $('#home').click(function(){
-  location.href='../home.html';
+  location.href='../index.html';
+  $('#loginScreen').hide();
 });
 
 
@@ -569,3 +571,51 @@ function getSignUp(url,apikey){
       //}
   });
 }
+
+
+/*
+
+var sdateVisible = false;
+var stDate = new Date();
+
+function datePicker(sdateVisible, stDate){
+  var month = stDate.getMonth()+1;
+  var day = stDate.getDate();
+
+  var soutput = stDate.getFullYear() + '-' +
+    (month<10 ? '0' : '') + month + '-' +
+    (day<10 ? '0' : '') + day;
+  $('#sday').text(soutput);
+
+
+  $('#sday').click(function(){
+    if (dateVisible === false){
+      $('#stodayDate').show();
+      $('#ssubmitDate').show();
+      $('#sday').hide();
+      sdateVisible = true;
+    }
+    else {
+      $('#stodayDate').hide();
+      $('#ssubmitDate').hide();
+      $('#sday').show();
+      sdateVisible = false;
+    }
+  });
+  $('#ssubmitDate').click(function(){
+
+    //database will use
+    //tDate = $('#todayDate').val();
+    soutput = $('#stodayDate').val();
+    $('#stodayDate').hide();
+    $('#ssubmitDate').hide();
+    $('#sday').text(soutput);
+    $('#sday').show();
+
+  });
+
+  
+  
+  
+}
+*/
