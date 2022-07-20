@@ -4,6 +4,7 @@ var url = 'https://ayangdailydrink-3299.restdb.io/rest/login';
 var url2 = 'https://ayangdailydrink-3299.restdb.io/rest/dailydrinkcount';
 var arrDrinkData = [''];
 
+
 var visible = '';
 var dateVisible = false;
 var tDate = new Date();
@@ -17,14 +18,23 @@ var arrdrinkGoal = [
 var Goal = 0;
 var goalCalc = 0;
 var use ='';
+var date = 0;
 
 var arrLogin = [''];
+var checkBev = false;
+var checkGoal = false;
+
+
+
 
 // -------------------------------*HOME PAGE JS CODES*  -------------------------------
 //functions - homepage
+$('#loginScreen').show();
+//$('#statScreen').hide();
 hideAndShow();
 datePicker(dateVisible, tDate);
 slider();
+getDrink(url2,apikey);
 
 // Hide/Show functions --------------------------------
 function hideAndShow(){
@@ -44,6 +54,7 @@ $('#drinkGoal3').hide();
 }
 
 //date picker --------------------------------
+
 function datePicker(dateVisible, tDate){
   var month = tDate.getMonth()+1;
   var day = tDate.getDate();
@@ -52,6 +63,7 @@ function datePicker(dateVisible, tDate){
     (month<10 ? '0' : '') + month + '-' +
     (day<10 ? '0' : '') + day;
   $('#day').text(output);
+  date = output;
 
 
   $('#day').click(function(){
@@ -76,6 +88,8 @@ function datePicker(dateVisible, tDate){
     $('#submitDate').hide();
     $('#day').text(output);
     $('#day').show();
+    date = output;
+    console.log(date);  
 
   });
 
@@ -86,63 +100,64 @@ function datePicker(dateVisible, tDate){
 
 //drink amount function --------------------------------
 
-$('#hundredMl').click(function(output){
+
+function checkDrink(drinkAmount, drinkGoalAmount){
+  if(checkGoal === true && checkBev === true){
+    drinkData(drinkAmount);
+    drinkMeterSet(drinkGoalAmount, drinkAmount);
+
+  };
+
+};
+
+
+$('#hundredMl').click(function(){
     var drinkAmount = 100;
     //CONSOLE
-    console.log('99', arrDrinkData);
-    drinkMeterSet(drinkGoalAmount, drinkAmount);
-    drinkData(drinkAmount);
+    console.log(date);
+    checkDrink(drinkAmount, drinkGoalAmount)
     //var meterAmount = 10;
 });
 $('#twoFiftyMl').click(function(){
     var drinkAmount = 250;
-  console.log(arrDrinkData);
-  drinkMeterSet(drinkGoalAmount, drinkAmount);
-  drinkData(drinkAmount);
+    checkDrink(drinkAmount, drinkGoalAmount);
 });
 $('#sixHundredMl').click(function(){
   var drinkAmount = 600;
   //CONSOLE
-  console.log(arrDrinkData);
-  drinkMeterSet(drinkGoalAmount, drinkAmount);
-  drinkData(drinkAmount);
+  checkDrink(drinkAmount, drinkGoalAmount);
 });
 $('#eightFiftyMl').click(function(){
   var drinkAmount = 850;
-  
   //CONSOLE
-  console.log(arrDrinkData);
-  drinkMeterSet(drinkGoalAmount, drinkAmount);
-  drinkData(drinkAmount);
+  checkDrink(drinkAmount, drinkGoalAmount);
 });
 $('#litre').click(function(){
   var drinkAmount = 1000;
   //CONSOLE
-  console.log(arrDrinkData);
-  drinkMeterSet(drinkGoalAmount, drinkAmount);
-  drinkData(drinkAmount);
+  checkDrink(drinkAmount, drinkGoalAmount);
 });
 
 
-getDrink(url2,apikey);
+
 //drink data function--------------------------------
 function drinkData(drinkAmount){
   //casewhere used to check which div is visible
     switch (visible){
       case 'c': 
-        var tempDrink = {Name: 'coffee', Cups: 1, Amount: drinkAmount, Date: $('#todayDate').val(), User: use, Goal: Goal};
+        var tempDrink = {Date: date, Name: 'coffee', Cups: 1, Amount: drinkAmount, User: use, Goal: Goal};
         addDrink(tempDrink, url2, apikey);
       break;
       case 'w': 
-        var tempDrink = {Name: 'water', Cups: 1, Amount: drinkAmount, Date: $('#todayDate').val(), User: use, Goal: Goal};
+        var tempDrink = {Date: date, Name: 'water', Cups: 1, Amount: drinkAmount, User: use, Goal: Goal};
         addDrink(tempDrink, url2, apikey);
       break;
       case 't': 
-        var tempDrink = {Name: 'tea', Cups: 1, Amount: drinkAmount, Date: $('#todayDate').val(), User: use, Goal: Goal};
+        var tempDrink = {Date: date, Name: 'tea', Cups: 1, Amount: drinkAmount, User: use, Goal: Goal};
         addDrink(tempDrink, url2, apikey);
       break;
       case 'j': 
-        var tempDrink = {Name: 'juice', Cups: 1, Amount: drinkAmount, Date: $('#todayDate').val(), User: use, Goal: Goal};
+        var tempDrink = {Date: date, Name: 'juice', Cups: 1, Amount: drinkAmount, User: use, Goal: Goal};
         addDrink(tempDrink, url2, apikey);
       break;
     }
@@ -207,14 +222,17 @@ function getDrink(url2,apikey){
   });
     //click functions
   $('#drinkGoal1').click(function(){
+    checkGoal = true;
     drinkGoalAmount = '0';
     $('#drinkGoaltxt').text(arrdrinkGoal[0].name);
   });
   $('#drinkGoal2').click(function(){
+    checkGoal = true;
     drinkGoalAmount = '1';
     $('#drinkGoaltxt').text(arrdrinkGoal[1].name);
   });
   $('#drinkGoal3').click(function(){
+    checkGoal = true;
     drinkGoalAmount = '2';
     $('#drinkGoaltxt').text(arrdrinkGoal[2].name);
   });
@@ -225,18 +243,19 @@ function getDrink(url2,apikey){
       case '0':
         Goal = 3000;
         drinkMeterMoveAmount(drinkAmount);
+        
       break;
   
       case '1':
         Goal = 4000;
         drinkMeterMoveAmount(drinkAmount);
         console.log(Goal);
+  
       break;
   
       case '2':
         Goal = 5000;
         drinkMeterMoveAmount(drinkAmount);
-        
       break;
     }
   }
@@ -273,12 +292,15 @@ function getDrink(url2,apikey){
         $("#drinkMeter").css({width: goalCalc + 'px'});
       break;
     }
+    //
     if(goalCalc >= 340){
       alert('goalreached');
       $("#drinkMeter").css({width: '340px'});
     } 
   
   }
+
+
 
 
 
@@ -313,6 +335,7 @@ $('#coffee').click(function(){
     $('#drinkDisplayWater').hide();
     $('#drinkDisplayCoffee').show();
     visible ='c';
+    checkBev = true;
 });
 $('#water').click(function(){
   $('#drinkDisplayDrink').hide();
@@ -321,6 +344,7 @@ $('#water').click(function(){
   $('#drinkDisplayCoffee').hide();
   $('#drinkDisplayWater').show();
   visible ='w';
+  checkBev = true;
 });
 $('#tea').click(function(){
     $('#drinkDisplayDrink').hide();
@@ -329,6 +353,7 @@ $('#tea').click(function(){
     $('#drinkDisplayWater').hide();
     $('#drinkDisplayTea').show();
     visible ='t';
+    checkBev = true;
 });
 $('#juice').click(function(){
     $('#drinkDisplayDrink').hide();
@@ -337,6 +362,7 @@ $('#juice').click(function(){
     $('#drinkDisplayWater').hide();
     $('#drinkDisplayJuice').show();
     visible ='j';
+    checkBev = true;
 });
 
 //Navigation - sliders -------------------------------
@@ -352,6 +378,7 @@ function slider(){
     $("#navigation").css({
       width: "250px"}
       );
+      $('#day').show();
   });
   
   $('#naviCloseBtn').click(function(){
@@ -366,13 +393,22 @@ function slider(){
 
  //access new html
  $('#stats').click(function(){
-  location.href='../stats.html?';
+  getDrink(url2, apikey);
+  $('#statScreen').show();
+  $('#loginScreen').hide();
+  $("#navigation").css({
+    width: "0px"}
+    );
+  
 
   
 });
 $('#home').click(function(){
-  location.href='../index.html';
   $('#loginScreen').hide();
+  $('#statScreen').hide();
+  $("#navigation").css({
+    width: "0px"}
+    );
 });
 
 
@@ -380,7 +416,7 @@ $('#home').click(function(){
 
 
 // -------------------------------*LOGIN PAGE JS CODES*  -------------------------------
-
+getSignUp(url,apikey);
 //hide show functions
 $('#loginError').hide();
 $('#signUpError').hide();
@@ -404,24 +440,26 @@ $('#signUp').hide();
 $('#loginSignUp').click(function(){
   $('#login').hide();
   $('#signUp').show();
+  
 
 });
 $('#signUpLogin').click(function(){
   $('#login').show();
   $('#signUp').hide();
+  $('#loginError').hide();
 
 });
  $('#signUpSubmit').click(function(){
   validateSignUp(arrLogin);
+  $('#loginScreen').hide();
+  $('#phoneScreen').show();
+
 
   
  });
  $('#loginSubmit').click(function(){
    login(arrLogin);
  });
-
- //get Rest.Db functions. 
- getSignUp(url,apikey);
 
  
 
@@ -573,12 +611,26 @@ function getSignUp(url,apikey){
 }
 
 
-/*
 
+
+
+
+
+
+
+
+
+
+//STATS PAGE
+$('#monthPg').hide();
+
+///Date ------------
 var sdateVisible = false;
 var stDate = new Date();
+sdatePicker(sdateVisible, stDate);
+pageSetter();
 
-function datePicker(sdateVisible, stDate){
+function sdatePicker(sdateVisible, stDate){
   var month = stDate.getMonth()+1;
   var day = stDate.getDate();
 
@@ -589,7 +641,7 @@ function datePicker(sdateVisible, stDate){
 
 
   $('#sday').click(function(){
-    if (dateVisible === false){
+    if (sdateVisible === false){
       $('#stodayDate').show();
       $('#ssubmitDate').show();
       $('#sday').hide();
@@ -614,8 +666,78 @@ function datePicker(sdateVisible, stDate){
 
   });
 
-  
+  //-----
   
   
 }
-*/
+
+var arrresult =[''];
+var total = 0;
+
+getDrink(url2,apikey);
+
+
+
+
+function pageSetter(){
+  $('#btnDay').click(function(){
+
+    $('#dayPg').show();
+    $('#monthPg').hide();
+    plusDrink(arrDrinkData);
+    selectionSortAmount(arrresult);
+    console.log(arrresult);
+    for(var i = 0; i < arrresult.length; ++i){
+     
+      total = total + arrresult[i].Amount;
+      console.log(total, '9');
+     }
+    
+    
+    
+
+  });
+  $('#btnMonth').click(function(){
+    $('#monthPg').show();
+    $('#dayPg').hide();
+
+  });
+}
+
+
+function selectionSortAmount(inputArr) { 
+  var n = inputArr.length;
+      
+  for(let i = 0; i < n; i++) {
+      // Finding the smallest number in the subarray
+      let min = i;
+      for(let j = i+1; j < n; j++){
+          if(inputArr[j].Amount < inputArr[min].Amount) {
+              min=j; 
+          }
+       }
+       if (min != i) {
+           // Swapping the elements
+           let tmp = inputArr[i]; 
+           inputArr[i] = inputArr[min];
+           inputArr[min] = tmp;      
+      }
+  }
+  return inputArr;
+};
+
+
+
+function plusDrink(arrDrinkData){
+  arrresult = [''];
+  for(var i = 0; i < arrDrinkData.length; ++i){
+   // console.log(arrDrinkData[i].Date);
+    if(arrDrinkData[i].Date == '2022-07-20'){
+      arrresult.push(arrDrinkData[i]);
+    
+    }
+   
+  }
+  return arrDrinkData;
+};
+
