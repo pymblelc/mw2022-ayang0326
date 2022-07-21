@@ -205,7 +205,7 @@
   color: #faf2ec;
   text-align: center;
   padding-top: 15px;
-
+  
 }
 
 #drinkGoal3{
@@ -224,10 +224,7 @@
   color: #faf2ec;
   text-align: center;
   padding-top: 15px;
-
 }
-
-
 
 #drinkGoal:hover{
   background-color: #8cafda;
@@ -258,6 +255,75 @@
   color: #252f3f;
   box-shadow: 0px 0px 10px 0px;
   box-shadow: #252f3f;
+}
+
+
+
+#goalReached{
+  position:absolute;
+  border-radius: 10%;
+  top: 205px;
+  left: 120px;
+  width: 180px;
+  height: 150px;
+  border: solid;
+  border-width: 5px;
+  border-color: transparent;
+  background-color: #252f3f;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+  text-align: center;
+  padding-top: 15px;
+  box-shadow: 0px 0px 10px 0px;
+  box-shadow: white;
+
+}
+
+#gYes{
+  position:inherit;
+  border-radius: 5%;
+  top: 110px;
+  left: 20px;
+  width: 50px;
+  height: 35px;
+  background-color: #faf2ec;
+  text-align: center;
+  color: #faf2ec;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #335484;
+}
+
+#gYes:hover{
+  background-color: #335484;
+  cursor: pointer;
+  color: #faf2ec;
+
+}
+
+
+
+#gNo{
+  position:inherit;
+  border-radius: 5%;
+  top: 110px;
+  left: 110px;
+  width: 50px;
+  height: 35px;
+  background-color: #faf2ec;
+  text-align: center;
+  color: #faf2ec;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #335484;
+}
+
+#gNo:hover{
+  background-color: #335484;
+  cursor: pointer;
+  color: #faf2ec;
+
 }
 
 
@@ -1095,6 +1161,7 @@
   top: 100px;
   left: 5px;
 }
+
 #stodayDate{
   position:inherit;
   margin: 5px;
@@ -1207,4 +1274,380 @@ background-color: #8cafda;
     cursor: pointer;
     }
     
-  
+ #sgoal{
+      position:inherit;
+      margin: 5px;
+      height: 10px;
+      width: 200px;
+      top: 80px;
+      left: -35px;
+      text-align: center;
+      border-style: solid;
+      border-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 20px;
+      color: #252f3f;
+      background-color: transparent;
+}
+
+#sdrinkMeter{
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  width: 1px;
+  height: 30px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #335484;
+  border: transparent;
+  mask:inherit;
+}
+
+#sdrinkMeterBack{
+  position:absolute;
+  top: 120px;
+  left: 40px;
+  width: 340px;
+  height: 30px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #bdd3ed;
+  border: solid;
+}
+
+#sdrinkGoal{
+  position:absolute;
+  border-radius: 50%;
+  top: 95px;
+  left: 325px;
+  width: 70px;
+  height: 45px;
+  border: solid;
+  border-width: 5px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+  text-align: center;
+  color: #faf2ec;
+  padding-top: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+}
+
+#colour4{
+  background-color: #252f3f;
+
+  position: inherit;
+  width: 300px;
+  height: 2px;
+  top: 180px;
+  left: 50px;
+
+}
+
+#stotalBev{
+  position:inherit;
+  margin: 5px;
+  height: 10px;
+  width: 200px;
+  top: 190px;
+  left: 5px;
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  color: #252f3f;
+  background-color: transparent;
+}
+
+#stotalBevStat{
+  position:inherit;
+  margin: 5px;
+  height: 10px;
+  width: 200px;
+  top: 190px;
+  left: 190px;
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  color: #252f3f;
+  background-color: transparent;
+}
+
+
+#sSpecific{
+  position:inherit;
+  margin: 5px;
+  height: 10px;
+  width: 200px;
+  top: 230px;
+  left: -10px;
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  color: #252f3f;
+  background-color: transparent;
+}
+
+
+#sWater{
+  position:inherit;
+  margin: 5px;
+  height: 10px;
+  width: 220px;
+  top: 260px;
+  left: -10px;
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  color: #252f3f;
+  background-color: transparent;
+}
+
+#sWaterMeter{
+  position:relative;
+  top: 0px;
+  left: 0px;
+  width: 1px;
+  height: 10px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #335484;
+  border: transparent;
+  mask:inherit;
+}
+
+#sWaterMeterBack{
+  position:absolute;
+  top: 290px;
+  left: 40px;
+  width: 340px;
+  height: 10px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #bdd3ed;
+  border: solid;
+}
+
+#sWaterCups{
+  position:absolute;
+  border-radius: 50%;
+  top: 268px;
+  left: 335px;
+  width: 50px;
+  height: 35px;
+  border: solid;
+  border-width: 2px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+  text-align: center;
+  color: #faf2ec;
+  padding-top: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+}
+
+
+
+
+
+#sCoffee{
+  position:inherit;
+  margin: 5px;
+  height: 10px;
+  width: 220px;
+  top: 330px;
+  left: -9px;
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  color: #252f3f;
+  background-color: transparent;
+}
+
+#sCoffeeMeter{
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  width: 1px;
+  height: 10px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #335484;
+  border: transparent;
+  mask:inherit;
+}
+
+#sCoffeeMeterBack{
+  position:absolute;
+  top: 360px;
+  left: 40px;
+  width: 340px;
+  height: 10px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #bdd3ed;
+  border: solid;
+}
+
+#sCoffeeCups{
+  position:absolute;
+  border-radius: 50%;
+  top: 338px;
+  left: 335px;
+  width: 50px;
+  height: 35px;
+  border: solid;
+  border-width: 2px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+  text-align: center;
+  color: #faf2ec;
+  padding-top: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+}
+
+
+#sTea{
+  position:inherit;
+  margin: 5px;
+  height: 10px;
+  width: 220px;
+  top: 400px;
+  left: -19px;
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  color: #252f3f;
+  background-color: transparent;
+}
+
+#sTeaMeter{
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  width: 1px;
+  height: 10px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #335484;
+  border: transparent;
+  mask:inherit;
+}
+
+#sTeaMeterBack{
+  position:absolute;
+  top: 430px;
+  left: 40px;
+  width: 340px;
+  height: 10px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #bdd3ed;
+  border: solid;
+}
+
+#sTeaCups{
+  position:absolute;
+  border-radius: 50%;
+  top: 408px;
+  left: 335px;
+  width: 50px;
+  height: 35px;
+  border: solid;
+  border-width: 2px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+  text-align: center;
+  color: #faf2ec;
+  padding-top: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+}
+
+
+
+
+#sJuice{
+  position:inherit;
+  margin: 5px;
+  height: 10px;
+  width: 220px;
+  top: 470px;
+  left: -15px;
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  color: #252f3f;
+  background-color: transparent;
+}
+
+#sJuiceMete{
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  width: 1px;
+  height: 10px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #335484;
+  border: transparent;
+  mask:inherit;
+}
+
+#sJuiceMeterBack{
+  position:absolute;
+  top: 500px;
+  left: 40px;
+  width: 340px;
+  height: 10px;
+  border-color: #252f3f;
+  border-radius: 1px;
+  background-color: #bdd3ed;
+  border: solid;
+}
+
+#sJuiceCups{
+  position:absolute;
+  border-radius: 50%;
+  top: 478px;
+  left: 335px;
+  width: 50px;
+  height: 35px;
+  border: solid;
+  border-width: 2px;
+  border-color: #faf2ec;
+  background-color: #252f3f;
+  text-align: center;
+  color: #faf2ec;
+  padding-top: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #faf2ec;
+}
+
+
+
+
+
+
+
+
+

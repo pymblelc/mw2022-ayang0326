@@ -9,6 +9,7 @@
     <body>
     
       <div id='phoneScreen'>
+        
       <div id= 'colour1'></div>
       <div id= 'colour2'></div>
       <div id= 'txt1'>Goal Meter</div>
@@ -56,6 +57,8 @@
       <button id='eightFiftyMl'>850ml</button>
       <button id='litre'>1L</button>
 
+      
+
 
     <div id='statScreen'> 
       <div id= 'colour1'></div>
@@ -74,17 +77,44 @@
       <input type="date" id="stodayDate">
       <button id="ssubmitDate">enter</button>
 
-      <div id="sgoalMeet">Goal meet</div> 
-      <div id="stotalBev">Total Beverage Intake</div> 
+
+      <div id="sgoal">Goal Status</div> 
+      <div id= 'sdrinkMeterBack'>
+        <div id= 'sdrinkMeter'></div>
+      </div>
+      <div id= 'sdrinkGoal'>Goal</div>
+
+
+      <div id="colour4"></div>
+      <div id="stotalBev">Total Beverage Intake:</div> 
+      <div id="stotalBevStat">stats</div> 
       
-      <div id="sSpecific">Specific data</div> 
+      <div id="sSpecific">Specific data:</div> 
       
       <div id="sWater">Water Intake</div> 
+      <div id= 'sWaterMeterBack'>
+        <div id= 'sWaterMeter'></div>
+      </div>
+      <div id= 'sWaterCups'>Cups</div>
+
+
       <div id="sCoffee">Coffee Intake</div> 
+      <div id= 'sCoffeeMeterBack'>
+        <div id= 'sCoffeeMeter'></div>
+      </div>
+      <div id= 'sCoffeeCups'>Cups</div>
+
       <div id="sTea">Tea Intake</div> 
-      <div id="sJuice">Juice Intake</div> 
+      <div id= 'sTeaMeterBack'>
+        <div id= 'sTeaMeter'></div>
+      </div>
+      <div id= 'sTeaCups'>Cups</div>
 
-
+      <div id="sJuice">Juice Intake</div>
+      <div id= 'sJuiceMeterBack'>
+        <div id= 'sJuiceMeter'></div>
+      </div>
+      <div id= 'sJuiceCups'>Cups</div>
 
 
 
@@ -98,6 +128,22 @@
     </div>
 
 
+
+
+
+
+
+
+
+    <div id = 'goalReached'>Goal Passed!! <br>
+         
+      <br>
+       Would you like to continue?
+      <button id = 'gYes'>Yes</button>
+      <button id = 'gNo'>No</button>
+    </div>
+
+
       <div id= 'naviBtn'>≡</div>
       <div id="navigation">
         <div id= 'navigationtxt'>Navigation</div>
@@ -105,10 +151,13 @@
         <button id="naviCloseBtn">X</button>
         <a id="home">Home</a>
         <a id="stats">Insights</a>
+        <a id="signOut">Sign Out</a>
       </div>
       
       <input type="date" id="todayDate">
       <button id="submitDate">enter</button>
+
+     
 
     </div>
 
@@ -117,7 +166,7 @@
 
 
 
-<!--
+
     <div id='loginScreen'> 
         
       <div id="signUp">
@@ -166,7 +215,7 @@
 
 
 
-
+<!--
       <div id ='profile'>profile pictrue</div>
       <div id ='Fname'>first name</div>
       <div id ='Lname'>last name</div>
@@ -177,9 +226,9 @@
       <div id ='height'>height</div>
       <div id ='weight'>weight</div>
       <div id ='goalsReached'>goalsReached</div>
+    -->
 
     </div>
-  -->
 
    
     <script type="text/javascript" src="homeScreen/js/homeScreen.js"></script>

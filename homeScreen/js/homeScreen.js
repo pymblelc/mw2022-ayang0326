@@ -23,18 +23,28 @@ var date = 0;
 var arrLogin = [''];
 var checkBev = false;
 var checkGoal = false;
+var arrUser =[];
 
 
-
+var arrresult =[];
+var total = 0;
+var sdateVisible = false;
+var stDate = new Date();
+var sDate = '';
 
 // -------------------------------*HOME PAGE JS CODES*  -------------------------------
 //functions - homepage
 $('#loginScreen').show();
-//$('#statScreen').hide();
+$('#loginScreen').hide();
+$('#statScreen').hide();
+//
+$('#statScreen').show();
+//
 hideAndShow();
 datePicker(dateVisible, tDate);
 slider();
 getDrink(url2,apikey);
+getSignUp(url,apikey);
 
 // Hide/Show functions --------------------------------
 function hideAndShow(){
@@ -50,6 +60,8 @@ $('#ssubmitDate').hide();
 $('#drinkGoal1').hide();
 $('#drinkGoal2').hide();
 $('#drinkGoal3').hide();
+$('#goalReached').hide();
+
 
 }
 
@@ -105,8 +117,22 @@ function checkDrink(drinkAmount, drinkGoalAmount){
   if(checkGoal === true && checkBev === true){
     drinkData(drinkAmount);
     drinkMeterSet(drinkGoalAmount, drinkAmount);
-
+    return;
   };
+  if(checkBev === false && checkGoal === false){
+    console.log('both');
+    return;
+  }
+  if(checkBev === false){
+    console.log('Bev');
+    return;
+  }
+  if(checkGoal === false){
+    console.log('goal');
+    return;
+  }
+ 
+
 
 };
 
@@ -294,11 +320,23 @@ function getDrink(url2,apikey){
     }
     //
     if(goalCalc >= 340){
-      alert('goalreached');
+      $('#goalReached').show();
       $("#drinkMeter").css({width: '340px'});
+
     } 
   
   }
+  $('#gYes').click(function(){
+    $('#goalReached').hide();
+  });
+
+  $('#gNo').click(function(){
+    $('#goalReached').hide();
+    getDrink(url2, apikey);
+    $('#statScreen').show();
+    $('#loginScreen').hide();
+  });
+
 
 
 
@@ -393,6 +431,8 @@ function slider(){
 
  //access new html
  $('#stats').click(function(){
+  console.log(arrDrinkData);
+  console.log(arrUser);
   getDrink(url2, apikey);
   $('#statScreen').show();
   $('#loginScreen').hide();
@@ -412,6 +452,15 @@ $('#home').click(function(){
 });
 
 
+$('#signOut').click(function(){
+  $('#loginScreen').show();
+  $('#statScreen').hide();
+
+  $("#navigation").css({
+    width: "0px"}
+    );
+});
+
 
 
 
@@ -424,6 +473,7 @@ $('#signUpErrorP').hide();
 $('#signUpErrorE').hide();
 $('#signUpErrorU').hide();
 
+/*
 $('#Fname').hide();
 $('#profile').hide();
 $('#Lname').hide();
@@ -432,6 +482,7 @@ $('#sex').hide();
 $('#height').hide();
 $('#weight').hide();
 $('#goalsReached').hide();
+*/
 
 $('#signUp').hide();
 
@@ -490,7 +541,6 @@ $('#signUpLogin').click(function(){
   }
   if (username == ''){
     $('#signUpErrorE').show();
-    console.log('use');
     return;
   }
   if (password == ''){
@@ -513,10 +563,12 @@ $('#signUpLogin').click(function(){
     }
   }
   if (found === true){
+    use = username;
+    console.log(use);
     var tempSignup= {
       Fname: $('#signUpFname').val(), 
       Lname:  $('#signUpLname').val(), 
-      Username: $('#signUpUsername').val().toLowerCase(), 
+      Username: $('#signUpUsername').val(), 
       Password: $('#signUpPassword').val(), 
       Cpassword:  $('#signUpCheckPassword').val()
     }
@@ -529,7 +581,10 @@ $('#signUpLogin').click(function(){
    $('#signUpLname').val('');
     $('#login').show();
     $('#signUp').hide();
+
     return;
+
+    
   }
  }
 
@@ -546,12 +601,13 @@ $('#signUpLogin').click(function(){
       //---- checks if the username exists and whether the password matches
       if (arrLogin[i].Username == username && arrLogin[i].Password == password && arrLogin[i].Cpassword == password) {
          found = true;
-         
          $('#loginUsername').val('');
          $('#loginPassword').val('');
          $('#loginError').hide();
          use = username;
          $('#loginScreen').hide();
+         console.log(use);
+  
           break; //---- breaking out of loop
 
       }
@@ -616,17 +672,12 @@ function getSignUp(url,apikey){
 
 
 
-
-
-
-
-
 //STATS PAGE
 $('#monthPg').hide();
+//$('#dayPg').hide();
 
 ///Date ------------
-var sdateVisible = false;
-var stDate = new Date();
+
 sdatePicker(sdateVisible, stDate);
 pageSetter();
 
@@ -638,6 +689,7 @@ function sdatePicker(sdateVisible, stDate){
     (month<10 ? '0' : '') + month + '-' +
     (day<10 ? '0' : '') + day;
   $('#sday').text(soutput);
+  sdate = soutput;
 
 
   $('#sday').click(function(){
@@ -663,6 +715,8 @@ function sdatePicker(sdateVisible, stDate){
     $('#ssubmitDate').hide();
     $('#sday').text(soutput);
     $('#sday').show();
+    sdate = soutput;
+    addAmount();
 
   });
 
@@ -671,30 +725,14 @@ function sdatePicker(sdateVisible, stDate){
   
 }
 
-var arrresult =[''];
-var total = 0;
-
-getDrink(url2,apikey);
-
-
 
 
 function pageSetter(){
   $('#btnDay').click(function(){
-
+    plusUser(arrDrinkData);
+    addAmount();
     $('#dayPg').show();
     $('#monthPg').hide();
-    plusDrink(arrDrinkData);
-    selectionSortAmount(arrresult);
-    console.log(arrresult);
-    for(var i = 0; i < arrresult.length; ++i){
-     
-      total = total + arrresult[i].Amount;
-      console.log(total, '9');
-     }
-    
-    
-    
 
   });
   $('#btnMonth').click(function(){
@@ -727,17 +765,46 @@ function selectionSortAmount(inputArr) {
 };
 
 
+function plusDrink(arrUser){
+  arrresult = [];
+  for(var i = 0; i < arrUser.length; ++i){
+   // console.log(arrDrinkData[i].Date);
+    if(arrUser[i].Date == sdate){
+      arrresult.push(arrUser[i]);
+    }
+  }
+  return arrUser;
+};
 
-function plusDrink(arrDrinkData){
-  arrresult = [''];
+
+
+function plusUser(arrDrinkData){
+  console.log(use);
+  arrUser = [];
   for(var i = 0; i < arrDrinkData.length; ++i){
    // console.log(arrDrinkData[i].Date);
-    if(arrDrinkData[i].Date == '2022-07-20'){
-      arrresult.push(arrDrinkData[i]);
-    
+    if(arrDrinkData[i].User == use){
+      arrUser.push(arrDrinkData[i]);
     }
-   
   }
+  console.log(arrUser);
   return arrDrinkData;
 };
 
+function addAmount(){
+  plusDrink(arrUser);
+  selectionSortAmount(arrresult);
+  console.log(arrresult);
+  console.log(use);
+  for(var i = 0; i < arrresult.length; ++i){
+   
+    total = total + arrresult[i].Amount;
+    console.log(total);
+   }
+};
+
+
+
+
+//DAY
+//$("#drinkMeter").css({width: goalCalc + 'px'});
