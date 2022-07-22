@@ -43,7 +43,7 @@ slider();
 getDrink(url2, apikey);
 getSignUp(url, apikey);
 
-// Hide/Show functions --------------------------------
+// Hide/Show bs --------------------------------
 $('#loginScreen').show();
 
 $('#statScreen').hide();
@@ -753,12 +753,7 @@ function sdatePicker(sdateVisible, stDate) {
     $('#sday').show();
     sdate = soutput;
 
-
-
   });
-
-  //-----
-
 
 }
 
@@ -861,10 +856,12 @@ function addAmount() {
 
   $("#sdrinkMeter").css({ width: 0 + 'px' });
   $('#sdrinkGoal').text(('0%'));
+  $('#stotalBevStat').text(( 0 + 'ML'));
 
   console.log(sgoal);
   goalCalc = 0;
   goalCalc = 340 / (sgoal / total);
+  $('#stotalBevStat').text(( total + 'Ml'));
 
   if (goalCalc < 340) {
     $("#sdrinkMeter").css({ width: goalCalc + 'px' });
