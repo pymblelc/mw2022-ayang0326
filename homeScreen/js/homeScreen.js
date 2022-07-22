@@ -33,6 +33,15 @@ var stDate = new Date();
 var sDate = '';
 var time = 0;
 
+var twater = 0;
+var tcoffee = 0;
+var ttea = 0;
+var tjuice = 0;
+
+var calcwater = 0;
+var calccoffee = 0;
+var calctea = 0;
+var calcjuice = 0;
 // -------------------------------*HOME PAGE JS CODES*  -------------------------------
 //functions - homepage
 
@@ -824,15 +833,7 @@ function plusUser(arrDrinkData) {
 
 
 
-var twater = 0;
-var tcoffee = 0;
-var ttea = 0;
-var tjuice = 0;
 
-var calcwater = 0;
-var calccoffee = 0;
-var calctea = 0;
-var calcjuice = 0;
 
 //DATA FUNCTION----------------!!!!!
 function addAmount() {
