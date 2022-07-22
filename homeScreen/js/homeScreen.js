@@ -70,7 +70,8 @@ $('#statScreen').hide();
 //loading
 loading(5);
 
-
+//DATA FUNCTION----------------!!!!!
+//:D
 function loading(trans){
   $("#loadingMeter").css({ transition: 0+'px' });
   $("#loadingMeter").css({ width: 0 +'px' });
@@ -88,6 +89,8 @@ function loading(trans){
 
 //date picker --------------------------------
 
+//DATA FUNCTION----------------!!!!!
+//:D
 function datePicker(dateVisible, tDate) {
   var month = tDate.getMonth() + 1;
   var day = tDate.getDate();
@@ -133,6 +136,7 @@ function datePicker(dateVisible, tDate) {
 
 //drink amount function --------------------------------
 
+//DATA FUNCTION----------------!!!!!
 
 function checkDrink(drinkAmount, drinkGoalAmount) {
   if (checkGoal === true && checkBev === true) {
@@ -150,6 +154,7 @@ function checkDrink(drinkAmount, drinkGoalAmount) {
   }
 
 };
+
 $('#Eok').click(function () {
   $('#errorCheck').hide();
 });
@@ -190,7 +195,8 @@ $('#litre').click(function () {
 
 
 
-//drink data function--------------------------------
+//drink dat function--------------------------------
+//DATA FUNCTION----------------!!!!!
 function drinkData(drinkAmount) {
   //casewhere used to check which div is visible
   switch (visible) {
@@ -215,6 +221,7 @@ function drinkData(drinkAmount) {
 
 
 //REST.DB functons-------------------------------
+//DATA FUNCTION----------------!!!!!
 function addDrink(tempDrink, url2, apikey) {
   getDrink(url2, apikey);
   var settings = {
@@ -289,7 +296,7 @@ $('#drinkGoal3').click(function () {
   $('#drinkGoaltxt').text(arrdrinkGoal[2].name);
 });
 
-
+//DATA FUNCTION----------------!!!!!
 function drinkMeterSet(drinkGoalAmount) {
   switch (drinkGoalAmount) {
     case '0':
@@ -310,7 +317,7 @@ function drinkMeterSet(drinkGoalAmount) {
       break;
   }
 }
-
+//DATA FUNCTION----------------!!!!!
 function drinkMeterMoveAmount(drinkAmount) {
   switch (drinkAmount) {
     case 100:
@@ -368,15 +375,10 @@ $('#gNo').click(function () {
 
 
 
-
-
-
-
-
-
-
 //dropdown centre button-------------------------------------
 //*NOTE* THIS IS PLAIN JS CODE, NOT JQUERY
+
+//DATA FUNCTION----------------!!!!!
 function myFunction() {
   document.getElementById("differentDrinks").classList.toggle("show");
 }
@@ -439,6 +441,7 @@ $('#juice').click(function () {
 $('#naviCloseBtn').hide();
 
 //change size of div to imitate sliding
+//DATA FUNCTION----------------!!!!!
 function slider() {
   $('#naviBtn').click(function () {
     $('#naviCloseBtn').show();
@@ -509,17 +512,6 @@ $('#signUpErrorP').hide();
 $('#signUpErrorE').hide();
 $('#signUpErrorU').hide();
 
-/*
-$('#Fname').hide();
-$('#profile').hide();
-$('#Lname').hide();
-$('#username').hide();
-$('#sex').hide();
-$('#height').hide();
-$('#weight').hide();
-$('#goalsReached').hide();
-*/
-
 $('#signUp').hide();
 
 //buttons
@@ -548,9 +540,7 @@ $('#loginSubmit').click(function () {
   login(arrLogin);
 });
 
-
-
-
+//DATA FUNCTION----------------!!!!!
 function validateSignUp(arrLogin) {
   var rePassword = $('#signUpCheckPassword').val();
   var username = $('#signUpUsername').val();
@@ -627,7 +617,7 @@ function validateSignUp(arrLogin) {
 }
 
 
-
+//DATA FUNCTION----------------!!!!!
 function login() {
   //---- getting values from inputs
   var username = $('#loginUsername').val();
@@ -661,6 +651,7 @@ function login() {
 
 
 //REST.DB functons-------------------------------
+//DATA FUNCTION----------------!!!!!
 function addSignUp(item, url, apikey) {
   getSignUp(url, apikey);
   var settings = {
@@ -711,6 +702,12 @@ function getSignUp(url, apikey) {
 
 
 
+
+
+
+
+
+
 //STATS PAGE
 $('#monthPg').hide();
 //$('#dayPg').hide();
@@ -719,6 +716,7 @@ $('#monthPg').hide();
 
 sdatePicker(sdateVisible, stDate);
 
+//DATA FUNCTION----------------!!!!!
 function sdatePicker(sdateVisible, stDate) {
   var month = stDate.getMonth() + 1;
   var day = stDate.getDate();
@@ -782,7 +780,7 @@ $('#btnDay').click(function () {
 
 });
 
-
+//DATA FUNCTION----------------!!!!!
 function selectionSortAmount(inputArr) {
   var n = inputArr.length;
 
@@ -804,7 +802,7 @@ function selectionSortAmount(inputArr) {
   return inputArr;
 };
 
-
+//DATA FUNCTION----------------!!!!!
 function plusDate(arrUser) {
   arrresult = [];
   for (var i = 0; i < arrUser.length; ++i) {
@@ -816,7 +814,7 @@ function plusDate(arrUser) {
   return arrUser;
 };
 
-
+//DATA FUNCTION----------------!!!!!
 function plusUser(arrDrinkData) {
   console.log(use);
   arrUser = [];
@@ -831,14 +829,6 @@ function plusUser(arrDrinkData) {
 
 
 
-
-
-
-var wtotal = 0;
-var ctotal = 0;
-var ttotal = 0;
-var jtotal = 0;
-
 var twater = 0;
 var tcoffee = 0;
 var ttea = 0;
@@ -849,6 +839,7 @@ var calccoffee = 0;
 var calctea = 0;
 var calcjuice = 0;
 
+//DATA FUNCTION----------------!!!!!
 function addAmount() {
   plusDate(arrUser);
   selectionSortAmount(arrresult);
@@ -894,7 +885,7 @@ function addAmount() {
  // ;
 
 };
-
+//DATA FUNCTION----------------!!!!!
 function addName() {
   for (var i = 0; i < arrresult.length; ++i) {
     if (arrresult[i].Name == 'water') {
