@@ -7,7 +7,6 @@ var url2 = 'https://ayangdailydrink-3299.restdb.io/rest/dailydrinkcount';
 var arrDrinkData = [''];
 var arrLogin = [''];
 
-
 //home page date
 var visible = '';
 var dateVisible = false;
