@@ -862,7 +862,7 @@ function addAmount() {
   console.log(sgoal);
   goalCalc = 0;
   goalCalc = 340 / (sgoal / total);
-  $('#stotalBevStat').text(( total + 'Ml'));
+  $('#stotalBevStat').text(( total + 'ML'));
 
   if (goalCalc < 340) {
     $("#sdrinkMeter").css({ width: goalCalc + 'px' });
